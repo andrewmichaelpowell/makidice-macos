@@ -3,25 +3,33 @@
 # Maki Dice (macOS)
 # github.com/andrewmichaelpowell
 
+# brew install create-dmg
+
 set -euo pipefail
 
-NOTARY_PROFILE="${NOTARY_PROFILE:-makidice-notary}"
-TEAM_ID="925F4PY4UL"
 APP_NAME="Maki Dice"
+PROJECT_NAME="makidice-macos"
+TEAM_ID="925F4PY4UL"
+NOTARY_PROFILE="makidice-notary"
 
 cd "$(dirname "$0")/.."
 ROOT="$PWD"
-BUILD="$ROOT/build"
+BUILD="$ROOT/Packages/Build"
+ASSETS="$ROOT/Packages/Assets"
 ARCHIVE="$BUILD/$APP_NAME.xcarchive"
 EXPORT="$BUILD/export"
 STAGING="$BUILD/dmg"
 
 VERSION=$(xcodebuild -project "$APP_NAME.xcodeproj" -scheme "$APP_NAME" -showBuildSettings 2>/dev/null \
 	| awk -F' = ' '/ MARKETING_VERSION /{print $2; exit}')
-DMG="$BUILD/makidice-macos.dmg"
+DMG="$BUILD/$PROJECT_NAME.dmg"
 
 IDENTITY=$(security find-identity -v -p codesigning | awk -F'"' '/Developer ID Application/{print $2; exit}')
 if [ -z "$IDENTITY" ]; then
+	exit 1
+fi
+
+if ! command -v create-dmg >/dev/null; then
 	exit 1
 fi
 
@@ -58,8 +66,18 @@ xcodebuild -exportArchive \
 
 mkdir -p "$STAGING"
 cp -R "$EXPORT/$APP_NAME.app" "$STAGING/"
-ln -s /Applications "$STAGING/Applications"
-hdiutil create -volname "$APP_NAME" -srcfolder "$STAGING" -fs HFS+ -format UDZO -ov "$DMG" >/dev/null
+tiffutil -cathidpicheck "$ASSETS/dmg-background1x.png" "$ASSETS/dmg-background2x.png" -out "$BUILD/dmg-background.tiff" >/dev/null 2>&1
+create-dmg \
+	--volname "$APP_NAME" \
+	--background "$BUILD/dmg-background.tiff" \
+	--window-pos 200 120 \
+	--window-size 540 368 \
+	--icon-size 128 \
+	--icon "$APP_NAME.app" 160 150 \
+	--hide-extension "$APP_NAME.app" \
+	--app-drop-link 380 150 \
+	--no-internet-enable \
+	"$DMG" "$STAGING" >/dev/null
 codesign --force --sign "$IDENTITY" --timestamp "$DMG"
 
 xcrun notarytool submit "$DMG" --keychain-profile "$NOTARY_PROFILE" --wait
