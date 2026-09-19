@@ -20,7 +20,9 @@ struct MakiDice: App {
 }
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
-	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+	func applicationShouldTerminateAfterLastWindowClosed(
+		_ sender: NSApplication
+	) -> Bool {
 		true
 	}
 }
