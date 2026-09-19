@@ -1,4 +1,4 @@
-//  Maki Dice
+//  Maki Dice (macOS)
 //  github.com/andrewmichaelpowell
 
 import SwiftUI
