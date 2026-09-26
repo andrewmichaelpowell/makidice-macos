@@ -258,7 +258,6 @@ struct MainView: View {
 	}
 }
 
-// Reserves the toolbar height that D10View's back button needs, so the title bar and window don't resize when navigating
 private struct BackButtonSpacer: ToolbarContent {
 	@ToolbarContentBuilder
 	var body: some ToolbarContent {
