@@ -11,10 +11,10 @@ struct MakiDice: App {
 	var body: some Scene {
 		Window("Maki Dice", id: "main") {
 			MainView()
-				.frame(minWidth: 384, minHeight: 612)
+				.frame(minWidth: 384, minHeight: 660)
 				.focusEffectDisabled()
 		}
-		.defaultSize(width: 384, height: 612)
+		.defaultSize(width: 384, height: 660)
 		.windowResizability(.contentMinSize)
 	}
 }
