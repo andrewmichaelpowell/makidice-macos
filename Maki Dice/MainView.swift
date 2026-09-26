@@ -79,10 +79,9 @@ struct MainView: View {
 				.padding(.vertical)
 			}
 			.padding(.horizontal)
-			.toolbar {
-				BackButtonSpacer()
-			}
+			.toolbar(removing: .title)
 		}
+		.toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
 	}
 
 	private func quickButton(_ digit: Int) -> some View {
@@ -254,24 +253,6 @@ struct MainView: View {
 			}
 			editSide = 1
 			resetInput = 1
-		}
-	}
-}
-
-private struct BackButtonSpacer: ToolbarContent {
-	@ToolbarContentBuilder
-	var body: some ToolbarContent {
-		if #available(macOS 26.0, *) {
-			ToolbarItem(placement: .navigation) {
-				Image(systemName: "chevron.left")
-					.hidden()
-			}
-			.sharedBackgroundVisibility(.hidden)
-		} else {
-			ToolbarItem(placement: .navigation) {
-				Image(systemName: "chevron.left")
-					.hidden()
-			}
 		}
 	}
 }
