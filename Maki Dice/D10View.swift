@@ -109,9 +109,7 @@ struct D10View: View {
 				.foregroundColor(.primary)
 				.frame(width: 30, height: 30)
 		}
-		.buttonStyle(.borderedProminent)
-		.buttonBorderShape(.circle)
-		.tint(Color(nsColor: .quaternaryLabelColor))
+		.diceButtonStyle(circle: true)
 		.keyboardShortcut(.cancelAction)
 	}
 
@@ -160,9 +158,7 @@ struct D10View: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(.orange))
+		.diceButtonStyle(tint: Color(.orange))
 	}
 
 	private func clear() {
@@ -194,9 +190,7 @@ struct D10View: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(nsColor: .quaternaryLabelColor))
+		.diceButtonStyle()
 	}
 
 	private var diceButton: some View {
@@ -209,9 +203,7 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.buttonStyle(.borderedProminent)
-			.cornerRadius(20)
-			.tint(Color(.teal))
+			.diceButtonStyle(tint: Color(.teal))
 		} else {
 			Button(action: setDice) {
 				Text("Dice")
@@ -221,9 +213,7 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.buttonStyle(.borderedProminent)
-			.cornerRadius(20)
-			.tint(Color(nsColor: .quaternaryLabelColor))
+			.diceButtonStyle()
 		}
 	}
 
@@ -241,9 +231,7 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.buttonStyle(.borderedProminent)
-			.cornerRadius(20)
-			.tint(Color(.teal))
+			.diceButtonStyle(tint: Color(.teal))
 		} else {
 			Button(action: setDifficulty) {
 				Text("Difficulty")
@@ -253,9 +241,7 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.buttonStyle(.borderedProminent)
-			.cornerRadius(20)
-			.tint(Color(nsColor: .quaternaryLabelColor))
+			.diceButtonStyle()
 		}
 	}
 
@@ -272,9 +258,7 @@ struct D10View: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(.orange))
+		.diceButtonStyle(tint: Color(.orange))
 	}
 
 	private func roll() {
