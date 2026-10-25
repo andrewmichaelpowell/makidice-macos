@@ -109,7 +109,9 @@ struct D10View: View {
 				.foregroundColor(.primary)
 				.frame(width: 30, height: 30)
 		}
-		.diceButtonStyle(circle: true)
+		.buttonStyle(.borderedProminent)
+		.buttonBorderShape(.circle)
+		.tint(Color(nsColor: .quaternaryLabelColor))
 		.keyboardShortcut(.cancelAction)
 	}
 
@@ -158,7 +160,9 @@ struct D10View: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.diceButtonStyle(tint: Color(.orange))
+		.buttonStyle(.borderedProminent)
+		.cornerRadius(20)
+		.tint(Color(.orange))
 	}
 
 	private func clear() {
@@ -190,7 +194,9 @@ struct D10View: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.diceButtonStyle()
+		.buttonStyle(.borderedProminent)
+		.cornerRadius(20)
+		.tint(Color(nsColor: .quaternaryLabelColor))
 	}
 
 	private var diceButton: some View {
@@ -203,7 +209,9 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.diceButtonStyle(tint: Color(.teal))
+			.buttonStyle(.borderedProminent)
+			.cornerRadius(20)
+			.tint(Color(.teal))
 		} else {
 			Button(action: setDice) {
 				Text("Dice")
@@ -213,7 +221,9 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.diceButtonStyle()
+			.buttonStyle(.borderedProminent)
+			.cornerRadius(20)
+			.tint(Color(nsColor: .quaternaryLabelColor))
 		}
 	}
 
@@ -231,7 +241,9 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.diceButtonStyle(tint: Color(.teal))
+			.buttonStyle(.borderedProminent)
+			.cornerRadius(20)
+			.tint(Color(.teal))
 		} else {
 			Button(action: setDifficulty) {
 				Text("Difficulty")
@@ -241,7 +253,9 @@ struct D10View: View {
 					.lineLimit(1)
 					.minimumScaleFactor(0.2)
 			}
-			.diceButtonStyle()
+			.buttonStyle(.borderedProminent)
+			.cornerRadius(20)
+			.tint(Color(nsColor: .quaternaryLabelColor))
 		}
 	}
 
@@ -258,7 +272,9 @@ struct D10View: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.diceButtonStyle(tint: Color(.orange))
+		.buttonStyle(.borderedProminent)
+		.cornerRadius(20)
+		.tint(Color(.orange))
 	}
 
 	private func roll() {
