@@ -12,7 +12,7 @@
     {
       "layers": [
         {
-          "image-name": "Front.png",
+          "image-name": "Front.svg",
           "name": "Front",
           "fill-specializations": [
             {
@@ -41,7 +41,7 @@
     {
       "layers": [
         {
-          "image-name": "Faces.png",
+          "image-name": "Faces.svg",
           "name": "Faces",
           "fill-specializations": [
             {
@@ -71,7 +71,7 @@
     {
       "layers": [
         {
-          "image-name": "Edges.png",
+          "image-name": "Edges.svg",
           "name": "Edges",
           "fill-specializations": [
             {
