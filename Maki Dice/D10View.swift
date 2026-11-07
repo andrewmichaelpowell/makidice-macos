@@ -119,7 +119,7 @@ struct D10View: View {
 		if selected == 1 {
 			Text("Dice")
 				.font(.largeTitle)
-				.foregroundColor(Color(.teal))
+				.foregroundColor(Color(red: 4 / 255, green: 80 / 255, blue: 48 / 255))
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
@@ -137,7 +137,7 @@ struct D10View: View {
 		if selected == 2 {
 			Text("Difficulty")
 				.font(.largeTitle)
-				.foregroundColor(Color(.teal))
+				.foregroundColor(Color(red: 4 / 255, green: 80 / 255, blue: 48 / 255))
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
@@ -162,7 +162,7 @@ struct D10View: View {
 		}
 		.buttonStyle(.borderedProminent)
 		.cornerRadius(20)
-		.tint(Color(.orange))
+		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
 	}
 
 	private func clear() {
@@ -211,7 +211,7 @@ struct D10View: View {
 			}
 			.buttonStyle(.borderedProminent)
 			.cornerRadius(20)
-			.tint(Color(.teal))
+			.tint(Color(red: 4 / 255, green: 80 / 255, blue: 48 / 255))
 		} else {
 			Button(action: setDice) {
 				Text("Dice")
@@ -243,7 +243,7 @@ struct D10View: View {
 			}
 			.buttonStyle(.borderedProminent)
 			.cornerRadius(20)
-			.tint(Color(.teal))
+			.tint(Color(red: 4 / 255, green: 80 / 255, blue: 48 / 255))
 		} else {
 			Button(action: setDifficulty) {
 				Text("Difficulty")
@@ -274,7 +274,7 @@ struct D10View: View {
 		}
 		.buttonStyle(.borderedProminent)
 		.cornerRadius(20)
-		.tint(Color(.orange))
+		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
 	}
 
 	private func roll() {

@@ -45,7 +45,7 @@ struct MainView: View {
 						}
 						.buttonStyle(.borderedProminent)
 						.cornerRadius(20)
-						.tint(Color(.teal))
+						.tint(Color(red: 4 / 255, green: 80 / 255, blue: 48 / 255))
 					}
 				}
 				.padding(.vertical)
@@ -121,7 +121,7 @@ struct MainView: View {
 		}
 		.buttonStyle(.borderedProminent)
 		.cornerRadius(20)
-		.tint(Color(.orange))
+		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
 	}
 
 	private func clear() {
@@ -217,7 +217,7 @@ struct MainView: View {
 		}
 		.buttonStyle(.borderedProminent)
 		.cornerRadius(20)
-		.tint(Color(.orange))
+		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
 	}
 
 	private func d() {
@@ -238,7 +238,7 @@ struct MainView: View {
 		}
 		.buttonStyle(.borderedProminent)
 		.cornerRadius(20)
-		.tint(Color(.orange))
+		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
 	}
 
 	private func roll() {
