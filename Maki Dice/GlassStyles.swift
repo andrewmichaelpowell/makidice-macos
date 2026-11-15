@@ -83,7 +83,7 @@ struct SegmentChooser<Value: Hashable>: View {
 		} label: {
 			Text(label)
 				.font(.title)
-				.foregroundStyle(isSelected ? Color.primary : Color.secondary)
+				.foregroundStyle(isSelected ? Color.white : Color.secondary)
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 				.padding(.horizontal, 8)
