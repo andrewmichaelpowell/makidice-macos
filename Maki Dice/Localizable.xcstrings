@@ -607,7 +607,6 @@
 
     },
     "Delete" : {
-      "comment" : "The accessibility label for the button that deletes the last digit typed.",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
