@@ -60,7 +60,7 @@ struct MainView: View {
 				HStack {
 					dButton
 					zeroButton
-					rollButton
+					backspaceButton
 				}
 			}
 			VStack {
@@ -200,6 +200,34 @@ struct MainView: View {
 		if (editSide == 1) && (resetInput == 0) {
 			editSide = 2
 			resultString = diceNumber + "d"
+		}
+	}
+
+	private var backspaceButton: some View {
+		Button(action: backspace) {
+			Image(systemName: "delete.backward")
+				.font(.title)
+				.foregroundColor(.primary)
+				.frame(maxWidth: .infinity, maxHeight: 40)
+		}
+		.glassButton(tint: .makiOrange)
+		.accessibilityLabel(Text("Delete"))
+	}
+
+	private func backspace() {
+		guard resetInput == 0 else { return }
+		if editSide == 2 {
+			if diceType.isEmpty {
+				editSide = 1
+				resultString = diceNumber
+			} else {
+				diceType.removeLast()
+				resultString = diceNumber + "d" + diceType
+			}
+		} else if !diceNumber.isEmpty {
+			diceNumber.removeLast()
+			resultString = diceNumber
+			if diceNumber.isEmpty { resetInput = 1 }
 		}
 	}
 
