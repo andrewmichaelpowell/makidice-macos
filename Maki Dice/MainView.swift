@@ -12,76 +12,62 @@ struct MainView: View {
 	@State private var resultValue: Int = 0
 
 	var body: some View {
-		NavigationStack {
-			VStack {
-				Spacer()
-				Text(resultString)
-					.font(.largeTitle)
-					.foregroundColor(.primary)
-					.frame(maxWidth: .infinity, alignment: .trailing)
-					.lineLimit(1)
-					.minimumScaleFactor(0.2)
-				VStack {
-					HStack {
-						quickButton(4)
-						quickButton(6)
-						quickButton(8)
-					}
-					HStack {
-						quickButton(10)
-						quickButton(12)
-						quickButton(20)
-					}
-					HStack {
-						clearButton
-						quickButton(100)
-						NavigationLink(destination: D10View()) {
-							Text("D10")
-								.font(.title)
-								.foregroundColor(.primary)
-								.frame(maxWidth: .infinity, maxHeight: 40)
-								.lineLimit(1)
-								.minimumScaleFactor(0.2)
-						}
-						.buttonStyle(.borderedProminent)
-						.cornerRadius(20)
-						.tint(Color(red: 4 / 255, green: 80 / 255, blue: 48 / 255))
-					}
+		VStack {
+			Spacer()
+			Text(resultString)
+				.font(.largeTitle)
+				.foregroundColor(.primary)
+				.frame(maxWidth: .infinity, alignment: .trailing)
+				.lineLimit(1)
+				.minimumScaleFactor(0.2)
+			Grid {
+				GridRow {
+					quickButton(4)
+					quickButton(6)
+					quickButton(8)
 				}
-				.padding(.vertical)
-				VStack {
+				GridRow {
+					quickButton(10)
+					quickButton(12)
+					quickButton(20)
 				}
-				.padding(.vertical, 4)
-				VStack {
-					HStack {
-						numberButton(1)
-						numberButton(2)
-						numberButton(3)
-					}
-					HStack {
-						numberButton(4)
-						numberButton(5)
-						numberButton(6)
-					}
-					HStack {
-						numberButton(7)
-						numberButton(8)
-						numberButton(9)
-					}
-					HStack {
-						dButton
-						zeroButton
-						rollButton
-					}
+				GridRow {
+					clearButton
+					quickButton(100)
+					rollButton
 				}
-				VStack {
-				}
-				.padding(.vertical)
 			}
-			.padding(.horizontal)
-			.toolbar(removing: .title)
+			.padding(.vertical)
+			VStack {
+			}
+			.padding(.vertical, 4)
+			VStack {
+				HStack {
+					numberButton(1)
+					numberButton(2)
+					numberButton(3)
+				}
+				HStack {
+					numberButton(4)
+					numberButton(5)
+					numberButton(6)
+				}
+				HStack {
+					numberButton(7)
+					numberButton(8)
+					numberButton(9)
+				}
+				HStack {
+					dButton
+					zeroButton
+					rollButton
+				}
+			}
+			VStack {
+			}
+			.padding(.vertical)
 		}
-		.toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
+		.padding(.horizontal)
 	}
 
 	private func quickButton(_ digit: Int) -> some View {
@@ -93,9 +79,7 @@ struct MainView: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(nsColor: .quaternaryLabelColor))
+		.glassButton()
 	}
 
 	private func quickRoll(quickDiceType: Int) {
@@ -119,9 +103,7 @@ struct MainView: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
+		.glassButton(tint: .makiOrange)
 	}
 
 	private func clear() {
@@ -174,9 +156,7 @@ struct MainView: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(nsColor: .quaternaryLabelColor))
+		.glassButton()
 	}
 
 	private var zeroButton: some View {
@@ -188,9 +168,7 @@ struct MainView: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(nsColor: .quaternaryLabelColor))
+		.glassButton()
 	}
 
 	private func zero() {
@@ -215,9 +193,7 @@ struct MainView: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
+		.glassButton(tint: .makiOrange)
 	}
 
 	private func d() {
@@ -236,9 +212,7 @@ struct MainView: View {
 				.lineLimit(1)
 				.minimumScaleFactor(0.2)
 		}
-		.buttonStyle(.borderedProminent)
-		.cornerRadius(20)
-		.tint(Color(red: 240 / 255, green: 92 / 255, blue: 34 / 255))
+		.glassButton(tint: .makiOrange)
 	}
 
 	private func roll() {

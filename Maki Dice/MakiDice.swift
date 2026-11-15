@@ -10,7 +10,7 @@ struct MakiDice: App {
 
 	var body: some Scene {
 		Window("Maki Dice", id: "main") {
-			MainView()
+			RootView()
 				.frame(minWidth: 384, minHeight: 660)
 				.focusEffectDisabled()
 		}
